@@ -381,5 +381,51 @@ Main tasks:
 
 ## Part III. Applied 
 
+### Social media
+
+Text in social media is different from other sources. 
+
+Applications
+
+- Trending topic detection
+- Opinion mining
+- Sentiment detection
+- Rumor/fake news detection
+- Adult content filtering
+- Customer support
+
+"Canonical" text satisfies: 
+- Single language
+- Single script
+- Formal
+- Gramatically correct
+- Few or no spelling errors
+- Mostly text-like (non emojis, images, etc.)
+
+Social media text contains: 
+- extrem brevity
+- nonstandard spellings
+- hashtags
+- emojis
+- new words
+- acrynyms
+- code-mixing, transliteration
+
+We call it a new language, Social Media Text Data (SMTD)
+
+Difficulties
+- no grammar: inconsistence/absence of punctuation, emojis, incorrect spelling, character repetition, abbreviations make the steps of tokenization, POS tagging, sentence boundaries hard to accomplish
+- non-standard spelling: e.g. tomorrow -> 2mrw, tmw, tomarrow, etc.
+- multilingual: multiple languages are mixed in the same sentences
+- transliteration: using the letters from another alphabet to represent the phonetics of a different one. 
+- special characters: emojis, gifs, non-ascii, hashtags, etc. 
+- ever-evolving vocabulary: new words are added very quickly in SMTD. This problem is known as Out Of Vocabulary problem in NLP systems. In 2014 - 2016 there were 10% of new words every month. 
+- length of text: shorter texts to save space and type faster. 
+- noisy data: social media contains ads, spam, promoted content, etc. This unwanted data has to be filtered before. 
+
+#### NLP Applications for social media
+
+##### Word cloud
+
 
 
