@@ -452,4 +452,18 @@ Use [TextBlob](https://github.com/sloria/TextBlob) to obtain polarity and subjec
 - Handling emojis: removing them could imply a loss of meaning, instead replace them with their corresponding text. To do so, use [Demoji](https://pypi.org/project/demoji/)
 - Split-joined words: camelcase hashtags
 - URL removal: use regex `http\S+`. 
-- Nonstandard spellings: e.g. "yesssss" or "sssssh".
+- Nonstandard spellings: e.g. "yesssss" or "sssssh". Use some facts like a letter never repeats 3 times in a row
+
+##### Text representation for SMTD
+
+BoW and TF-IDF do not work well with SMTD. Pretrained models do not work well, due to the differences in the vocabulary. 
+Solution:
+- Use pretrained models on SMTD like the one drlm Stanford NLP group. 
+- Use better tokenizer, e.g. twokenize
+- Train your own embeddings
+
+New words are added constantly in SMTD, so models get their performance reduced as production and trining data reduce their overlapping. 
+
+To avoid the permanent OOV problem in SMTD, character n-gram embedding models have been created. When a word is OOV, split it into its n-grams and use the embeddings to form  the embedding of the new word. fastText has already done this. 
+
+
