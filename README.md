@@ -427,5 +427,29 @@ Difficulties
 
 ##### Word cloud
 
+It is an image containing the most important (frequent) words in a given set of texts. 
+Pipeline: 
+- Tokenize
+- Remove stop words
+- Sort remaining words in descending order of frequency
+- Take top _k_ words and plot them
 
+[twokenize](https://github.com/aritter/twitter_nlp/blob/master/python/twokenize.py) is a tool specialized in SMTD tokenization. 
 
+##### Trending topics
+
+Use Twitter API to get the trending topics for a given WOEID (where on earth identifier). 
+
+##### Sentiment analysis
+
+Use [TextBlob](https://github.com/sloria/TextBlob) to obtain polarity and subjectivity
+
+#### Preprocessing SMTD
+
+- Remove markup elements (HTML, XML, XHML), use [Beautiful Soup](https://pypi.org/project/beautifulsoup4/)
+- Handling non-text data: normalize to UTF-8
+- Handling apostrophes: expand them to their full form
+- Handling emojis: removing them could imply a loss of meaning, instead replace them with their corresponding text. To do so, use [Demoji](https://pypi.org/project/demoji/)
+- Split-joined words: camelcase hashtags
+- URL removal: use regex `http\S+`. 
+- Nonstandard spellings: e.g. "yesssss" or "sssssh".
