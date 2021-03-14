@@ -466,4 +466,24 @@ New words are added constantly in SMTD, so models get their performance reduced 
 
 To avoid the permanent OOV problem in SMTD, character n-gram embedding models have been created. When a word is OOV, split it into its n-grams and use the embeddings to form  the embedding of the new word. fastText has already done this. 
 
+##### Social media and Customer support
 
+Companies receive lots of contacts which can be differentiated into two big groups: actionable messages and noise. Building a model to distinguish them out would follow the pipeline: 
+- Collect a labeled dataset
+- Clean
+- Pre-process
+- Tokenize
+- Represent
+- Train 
+- Test
+- Deploy
+
+#### Memes and Fake News
+
+Memes can be classified into: 
+- Content-based: uses content to match with other memes of similar patterns that have already been identified. 
+- Behavior-based: a viral post with high initial activity. 
+
+Fake news have some approaches: 
+- Fact verification using external sources. This has the problem that some parts of the sentences may be wrong, but we do not know which ones. 
+- Classifying fake vs. real: a basic classifier can do badly due to the fact that fake news could hardly be distinguished from real news. 
