@@ -487,3 +487,8 @@ Memes can be classified into:
 Fake news have some approaches: 
 - Fact verification using external sources. This has the problem that some parts of the sentences may be wrong, but we do not know which ones. 
 - Classifying fake vs. real: a basic classifier can do badly due to the fact that fake news could hardly be distinguished from real news. 
+
+### E-Commerce and Retail
+
+Attribute extraction
+
