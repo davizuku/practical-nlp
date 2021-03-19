@@ -490,5 +490,7 @@ Fake news have some approaches:
 
 ### E-Commerce and Retail
 
-Attribute extraction
+#### Attribute extraction
 
+- Direct: the information is directly available in the text to be analyzed (usually product description)
+- Derived: the information is not present in the text and must be derived from the context.
