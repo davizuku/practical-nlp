@@ -490,7 +490,82 @@ Fake news have some approaches:
 
 ### E-Commerce and Retail
 
+The following techniques can be A/B tested to see their impact on sales, click-through, time spent on one webpage, etc. 
+
 #### Attribute extraction
 
 - Direct: the information is directly available in the text to be analyzed (usually product description)
+	- Regexes with a list of brands and attributes
+	- Other possibility are seq2seq models (BIO notation), but they need complex features: 
+	 	- Characteristic features: token-based features, letter case, length, character composition...
+	 	- Locational features: positional aspect of the token in the input sequence, num tokens before, ratio pos token/total num tokens...
+	 	- Contextual features: neighboring tokens, next/prev token, POS tag...
 - Derived: the information is not present in the text and must be derived from the context.
+	- Text classification to infer external categories
+
+#### Product categorization 
+
+- Process of dividing products into groups. Generally e-commerce has pre-defined broad categories of products. 
+- Hierarchical text classification: 
+ 	- Higher levels -> rule-based models
+ 	- Lower levels -> ML models
+ - APIs from Semantics3, eBay and Lucidworks
+
+#### Product enrichment
+
+- Product title or description are incorrect or incomplete. 
+- Templating titles to fit the taxonomy
+
+#### Product deduplication and matching
+
+- For multiple reasons, there might be duplicated products in the database. 
+- Locating these products can be done through multiple techniques:
+	- Attribute match: overlapping of attributes, string similarity, etc. Abbreviations should be avoided using a good Product enrichment. 
+	- Title match: considering n-grams counting, sentence embeddings similarity, Siamese network. 
+	- Image match: pixel-to-pixel match, feature map matching, 
+
+### Review analysis
+
+- Star rating and text rating may not be correlated. 
+- It is important to understand bad reviews, especially. 
+- Important keywords in bad reviews are useful 
+
+#### Aspect-level sentiment analysis
+
+- Aspect: semantically rich, concept-centric collection of words that indicates certain properties or characteristics of the product. They may not be only about the product, but delivery, presentation, return, etc. 
+	- Usually defined by the retailer based on the preferred granularity level
+
+- Supervised approach:
+	- Assumes all aspects are known
+	- If a sentence contains one of the aspect's word assigns the sentence to the aspect. 
+	- Sentiment analysis done at sentence level
+- Unsupervised approach: 
+	- Topic modelling to identify latent topics in the reviews (LDA). Topics -> aspects. Group sentences about topics. 
+	- Clustering of sentence representations. Gives better results with fewer data. 
+
+#### Connecting overall ratings to aspects
+
+- Latent rating regression analysis (LARA)
+- Assumption: A final rating is a weighted sum of individual aspect-level sentiments. 
+- Goal: estimate those weights. Those weights will indicate how important each aspect is for the customer. 
+
+#### Understanding aspects
+
+- Even though we have a general view of the sentiment behind an aspect, if we wanted to perform a general action to improve it we will not know how. 
+- If the number of sentences in a given aspect is huge, text summarization can be a good idea. 
+- LexRank is an algorithm similar to PageRank, linking sentences by similarity. Then picks the sentence in the center and presents a list of sentences as a summary.  
+
+### Recommendations for e-commerce
+
+- Similarity of products can be defined as content-based or user profile-based. 
+- Complements & Substitutes: 
+	- Complements are products that are typically bought togethe. 
+	- Substitutes are products that are bought instead of the other. 
+- Product interrelationships
+	- Latent attribute extraction from reviews
+	- Product linking
+
+
+## Healthcare, Finance, and Law
+
+
