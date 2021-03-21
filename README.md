@@ -568,4 +568,12 @@ The following techniques can be A/B tested to see their impact on sales, click-t
 
 ## Healthcare, Finance, and Law
 
+### Healthcare
+
+- Structuring unstructured textual medical data can help automating some parts of the process, e.g. question-answering systems to decrease time to look up relevant patient infomration. 
+- Analyzing the effects of medication commented in social media can help detecting and tracking these effects and ensure that a drug is safe. 
+- Chatbots can present a friendly interactive way to expert systems that help mental illnesses and other type of patients. 
+- It is important to avoid blackboxes in diagnosis predicting models. To achieve this, attention, a concept in deep learning is used to understand what data points and incidents are most important for an outcome. https://www.analyticsvidhya.com/blog/2019/11/comprehensive-guide-attention-mechanism-deep-learning/
+- It is possible to use signals from social media to track the emotional state and mental balance of both particular individuals and acrros groups of individuals. 
+- AWS Amazon Comprehend Medical and BioBERT are two good starting points. 
 
