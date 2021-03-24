@@ -577,3 +577,8 @@ The following techniques can be A/B tested to see their impact on sales, click-t
 - It is possible to use signals from social media to track the emotional state and mental balance of both particular individuals and acrros groups of individuals. 
 - AWS Amazon Comprehend Medical and BioBERT are two good starting points. 
 
+### Finance and Law
+
+- Finantial sentiment analyzes experts opinion, social media posts, and news to see how the information will affect certain company's stock price. FinBERT.
+- Risk assesments can benefit from NLP when processing more textual data about 'borrowers' and detecting incoherences when trying to assess credit risk.
+- Legal documents can be improved using NLP for tasks such as case referencing, brief preparation, document review, contract design, background analysis, etc. Most of the advances are protected by patents. 
