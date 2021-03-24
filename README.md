@@ -34,7 +34,7 @@ Pre-processing
 		- Parsing (Syntax resolution)
 		- Correference resolution
 
-Feature Engineering
+Text representation & Feature Engineering
 
 	- ML / NLP interpretability, can be broken easily with manual action.
 	- Deep Learning non interpretable.
@@ -582,3 +582,79 @@ The following techniques can be A/B tested to see their impact on sales, click-t
 - Finantial sentiment analyzes experts opinion, social media posts, and news to see how the information will affect certain company's stock price. FinBERT.
 - Risk assesments can benefit from NLP when processing more textual data about 'borrowers' and detecting incoherences when trying to assess credit risk.
 - Legal documents can be improved using NLP for tasks such as case referencing, brief preparation, document review, contract design, background analysis, etc. Most of the advances are protected by patents. 
+
+
+## Part IV. Bringing it all together
+
+NLP pipeline: 
+- Data Acquisition
+- Text Cleaning
+- Pre-processing
+- Text representation & Feature Engineering
+- Modeling
+- Evaluation
+- **Deployment**
+- **Monitoring and Model Updating**
+
+Let's focus on the *deployment* and *monitoring & updating the model* steps from the NLP pipeline.
+
+### Questions before starting the NLP project
+
+- What kind of data do we need for training the NLP system? Where do we get this data from? These questions are important at the start and also later as the model matures.
+- How much data is available? If it’s not enough, what data augmentation techniques can we try?
+- How will we label the data, if necessary?
+- How will we quantify the performance of our model? What metrics will we use to do that?
+- How will we deploy the system? Using API calls over the cloud, or a monolith system, or an embedded module on an edge device?
+- How will the predictions be served: streaming or batch process?
+- Would we need to update the model? If yes, what will the update frequency be: daily, weekly, monthly?
+- Do we need a monitoring and alerting mechanism for model performance? If yes, what kind of mechanism do we need and how will we put it in place?
+
+### Deployment
+
+- Model packaging: where to persist the model for easy access. Famous pre-trained models typically weight more than 2GB, which makes it harder and more expensive to keep in a service. 
+- Model serving: make it available as a web service for other services to consume. 
+- Model scaling: models as a service should be capable to scale with respect to request traffic or batch size.
+
+### Building and maintaining a mature system
+
+- Covariate shift: the fact that the production data evolves from the one used for training the model and it leads to peformance drop of the model. 
+- Manage complexity of a model while making sure it is also maintainable. 
+	- Finding better features: 
+		- build a simple model first, start with simple representaitons or use prior knowledge to build the features. 
+		- Feature selection is also important and statistical methods can be used to find redundant or irrelevant features. 
+			- Wrapper methods: train a model with a subset of the features and compare its performance with the original model. Computational expensive
+			- Filter methods: use some sort of proxy measure instead of the error rate to rank and score features.
+		- DeepLearning models feature selection is automated.
+	- Iterating existing models: 
+		- set up a process to periodically retrain and update the existing model and deploy the new model in production. 
+		- How do we know this new model is better than the existing one? Internal validation against a "gold standard test set" or external validation using charts and A/B tests on the performance. 
+		- Incremental rollout of the new model. 
+	- Code and model reproducibility
+		- Versioning code with GIT
+		- Versioning data with "Data version control" https://dvc.org/
+		- Store model settings along with the model
+		- Use the same seed wherever random initialization is used. 
+		- Note all steps explicitly
+	- Troubleshooting and testing
+		- Run the model on train, validation and test datasets keeping the deviation of results low. K-fold cross validation is often used to verify model performance. 
+		- Test the model for edge cases, e.g. double or triple negation for sentiment analysis. 
+		- Analyze the mistakes the model is making. 
+		- Keep track of statistics of the features like mean, median, sd, distribution plots, etc. Deviations from these features is a red-flag. 
+		- Create dashboards for tracking model metrics and create an alert mechanism on them in case there are any deviations in the metrics. 
+		- Interpretability: It's always good to know what a model is doing inside. Use LIME: https://github.com/marcotcr/lime, attention networks and Shapley. 
+	- Monitoring: Automatic retrain can add bugs or malfunction to the model. To ensure this doesn't happen we need to: 
+		- Monitor model performance reularly: percentile of response time for web services, and task time for batch processing systems. 
+		- Store model parameters, behavior, and KPIs (external validation)
+		- Run the stored metrics through an anormaly detection system that can alert changes in normal behavior. Actions for sudden performance drop should also be taken into account. 
+	- Minimizing technical debt
+		- We may have scenarios where we don’t know if the incremental improvements justify the complexity.
+		- Drop out unused or rare features 
+		- Choose a simpler model that has performance comparable to a much more complex model if you want to minimize technical debt.
+	- Automating the ML process
+		- From finding better features to version control of datasets, these practices are manual and effort intensive. Driven by the ultimate goal of building intelligent machines and reducing manual effort, AutoML has been created. This is an area of ML to make it more accessible. 
+		- AutoML is itself essentially “doing machine learning using machine learning”
+		- `auto-sklearn`: automatic accuracy of 98% on MNIST dataset
+		- Google AutoML: https://cloud.google.com/natural-language/automl/docs/features
+		- AutoCompete framework: https://arxiv.org/pdf/1507.02188.pdf & https://www.kaggle.com/abhishek/approaching-almost-any-nlp-problem-on-kaggle
+
+### The Data Science process
