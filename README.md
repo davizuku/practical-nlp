@@ -658,3 +658,62 @@ Let's focus on the *deployment* and *monitoring & updating the model* steps from
 		- AutoCompete framework: https://arxiv.org/pdf/1507.02188.pdf & https://www.kaggle.com/abhishek/approaching-almost-any-nlp-problem-on-kaggle
 
 ### The Data Science process
+
+Two popular processes in the NLP & Data Science industry are: 
+
+#### Knowledge Discovery and Data Mining (KDD)
+
+- Understanding the domain and the goals of the problem to solve
+- Target dataset creation
+- Data pre-processing
+- Data reduction
+- Choosing the data mining task: regression, classification, clustering (depends on the domain)
+- Choosing the data mining algorithm: SVM, random forests, CNNs, etc. 
+- Data mining: algorithm + dataset = predictive models
+- Interpretation
+- Consolidation: deploy the model into an existing system, document and generate reports
+
+#### Microsoft Team Data Science Process
+
+Current (2017) standard process for executing and delivering advanced analytics solutions. Features:
+- A data science life cycle definition: Business understanding, data acquisitioin and understanding, modeling, deployment, and customer acceptance. 
+- A standardized project structure
+- An infrastructure for project execution
+- Tools for data science, version control, data exploration, and modeling
+
+https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/
+
+![image](https://user-images.githubusercontent.com/8902219/112701804-e64adc80-8e91-11eb-9738-3393dbfa1aaa.png)
+
+### Making AI succeed at your organization
+
+- 85% of AI projects fail
+- An ideal AI team is formed by: 
+	1. Scientists who build models, preferrably if they have worked in industry after graduate school
+	2. Engineers who operationalize and maintain models and understand scale and data pipelines
+	3. Leaders who manage AI teams and strategize, who have been individual contributor scientists in the past. 
+
+- Right problem and right expectations: 
+	- Given a task. The possibilities are many. It’s important to work with the stakeholders first to clearly define the task.
+	- The ready availability of a lot of data does not make something an AI problem by default; many problems can be solved using engineering and rule-based and human-in-the-loop approaches.
+	- Most stakeholders coming from the world of software engineering treat a wrong output as a bug and are not willing to accept anything that’s not 100% correct.
+
+- Data and timing
+	- Quality of data: high quality data means structured, homogeneous, cleaned, and free of noise and outliers. 
+	- Quantity of data: 
+		- Text classification using Naive Bayes or random forests 3000 datapoints per class is a good starting point.
+	- Data labeling: having a human-validated set of labels is time-consuming and expensive process. It is often a continuous process. 
+
+- A good process	
+	- Set up the right metrics: beyond accuracy, recall, etc. business metrics alogn with AI metrics. 
+	- Start simple, establish strong baselines: do not apply state-of-the-art models right away unless strictly necessary. 
+	- Make it work, make it better: complete a whole project cycle having an acceptable model quickly. 
+	- Keep shorter turnaround cycles: build models quickly and present results to stakeholders frequently. This helps raise any red flags early and get early feedback.
+
+- Other aspects
+	- Cost of compute
+	- Blindly following state-of-the-art
+	- Return of Investment: AI is expensive and the gains must be estimated first. 
+	- Full automation is hard
+
+![image](https://user-images.githubusercontent.com/8902219/112702983-9ec64f80-8e95-11eb-8189-fe05bc4a2d98.png)
