@@ -214,7 +214,7 @@ Practical advice
 - Use the wisdom of many. Consider combining the results of multiple classifiers. 
 
 
-### Information extraction
+### Information extraction
 
 Main tasks: 
 
