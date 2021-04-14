@@ -55,9 +55,9 @@ Deployment
 	- Batch processing
 
 Monitoring and Model Updating
-	- 
 
-### Text representation
+
+### Text representation
 
 Vector Space Models
 	- A way to represent proximity between words and their relations (cos / Euclidean distance)
